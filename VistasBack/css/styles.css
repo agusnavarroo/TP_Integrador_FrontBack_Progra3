@@ -1,0 +1,193 @@
+/*=================
+    Generales
+=================*/
+:root {
+    /* Colores Boca */
+    --boca-azul: #0033a0;
+    --boca-azul-oscuro: #001f5c;
+    --boca-amarillo: #fedd00;
+
+    --naranja-acento: #ff6b35;
+    --naranja-dorado: #f77f00;
+    --naranja-quemado: #d05a3f;
+
+    /* Grises */
+    --fondo-gris: #eceff3;
+    --gris-texto: #7a8499;
+    --gris-borde: #dde2ea;
+
+    /* Mensajes */
+    --mensaje-verde: #0a3622;
+    --fondo-verde: #d1e7dd;
+    --borde-verde: #a3cfbb;
+
+    --mensaje-rojo: #58151c;
+    --fondo-rojo: #f8d7da;
+    --borde-rojo: #f1aeb5;
+}
+
+body {
+    background-color: var(--fondo-gris);
+}
+
+.mensaje {
+    margin: 0 auto;
+    padding: 20px 60px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.error {
+    color: var(--mensaje-rojo);
+    background-color: var(--fondo-rojo);
+    border: 2px solid var(--borde-rojo);
+}
+
+.exito {
+    color: var(--mensaje-verde);
+    background-color: var(--fondo-verde);
+    border: 2px solid var(--borde-verde);
+}
+
+
+/*=================
+    Header
+=================*/
+header, #logo, .lista-nav {
+    display: flex;
+    align-items: center;
+}
+
+header {
+    justify-content: space-between;
+    background-color: var(--boca-azul-oscuro);
+    border-radius: 12px;
+    border-bottom: 4px solid var(--boca-amarillo);
+    padding: 10px 25px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+#logo {
+    width: 25%;
+    justify-content: space-around;
+    margin-bottom: 0;
+}
+
+.logo-container {
+    width: 55px;
+}
+
+.logo-titulo {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    color: var(--boca-amarillo);
+}
+
+header nav {
+    width: 55%;
+}
+
+.lista-nav {
+    justify-content: space-around;
+    width: 100%;
+}
+
+/* Links del menu como "pildoras" */
+.lista-nav a {
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+/* NUEVO (no visto en clase): cuando el mouse esta encima del link */
+.lista-nav a:hover {
+    background-color: var(--boca-amarillo);
+    color: var(--boca-azul-oscuro);
+}
+
+/*=================
+    Cards
+=================*/
+.card-producto {
+    background-color: white;
+    border: 1px solid var(--gris-borde);
+    border-radius: 14px;
+    width: 180px;
+    height: 230px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+
+    /* NUEVO (no visto en clase): sombra suave para que la tarjeta "flote" */
+    box-shadow: 0 4px 12px rgba(0, 31, 92, 0.12);
+
+    /* NUEVO (no visto en clase): hace suave el movimiento de abajo */
+    transition: transform 0.2s;
+}
+
+/* NUEVO (no visto en clase): al pasar el mouse, la tarjeta sube un poquito */
+.card-producto:hover {
+    transform: translateY(-4px);
+}
+
+.card-producto h4, .card-producto p {
+    margin-bottom: 0;
+}
+
+.card-producto h4 {
+    color: var(--boca-azul);
+    font-size: 14px;
+    text-align: center;
+}
+
+.card-img {
+    width: 80px;
+    max-height: 90px;
+}
+
+.card-id {
+    color: var(--gris-texto);
+    font-size: 12px;
+}
+
+.card-precio {
+    color:black;
+    font-size: 20px;
+}
+
+#contenedor-productos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*=================
+    Lista producto
+=================*/
+.getIdProduct-container {
+    width: 40%;
+}
+
+.lista-container {
+    width: 95%;
+}
+
+.lista-producto_img {
+    width: 100px;
+    border-radius: 0.25rem;
+}
+
+.lista-producto {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0;
+    justify-content: space-between;
+}
