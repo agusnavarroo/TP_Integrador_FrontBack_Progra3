@@ -24,6 +24,9 @@
     --mensaje-rojo: #58151c;
     --fondo-rojo: #f8d7da;
     --borde-rojo: #f1aeb5;
+
+    /* Pico pinta el fondo aca, por eso lo ponemos tambien en :root */
+    background-color: var(--fondo-gris);
 }
 
 body {
@@ -111,8 +114,9 @@ header nav {
     color: var(--boca-azul-oscuro);
 }
 
+
 /*=================
-    Cards
+    Cards (pagina principal)
 =================*/
 .card-producto {
     background-color: white;
@@ -160,7 +164,7 @@ header nav {
 }
 
 .card-precio {
-    color:black;
+    color: black;
     font-size: 20px;
 }
 
@@ -169,15 +173,57 @@ header nav {
     flex-wrap: wrap;
 }
 
+
 /*=================
-    Lista producto
+    Formularios (Obtener, Crear, Modificar, Eliminar)
 =================*/
-.getIdProduct-container {
-    width: 40%;
+
+/* Los 3 contenedores tienen ancho fijo y quedan en el medio de la pagina */
+.getIdProduct-container, .createProduct-container, .updateProduct-container {
+    width: 50%;
+    margin: 0 auto;
 }
 
-.lista-container {
-    width: 95%;
+/* Titulos centrados */
+.createProduct-container h2, .updateProduct-container h2 {
+    text-align: center;
+    color: var(--boca-azul-oscuro);
+}
+
+/* Cada formulario es una tarjeta blanca, igual que las cards */
+main form {
+    background-color: white;
+    border: 1px solid var(--gris-borde);
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 31, 92, 0.12);
+}
+
+main label {
+    color: var(--boca-azul-oscuro);
+}
+
+/* Botones de enviar: azul Boca */
+/* NUEVO (no visto en clase): selector que elige el input segun su atributo type */
+main form input[type="submit"] {
+    background-color: var(--boca-azul);
+    border-color: var(--boca-azul);
+    color: white;
+}
+
+main form input[type="submit"]:hover {
+    background-color: var(--boca-amarillo);
+    border-color: var(--boca-amarillo);
+    color: var(--boca-azul-oscuro);
+}
+
+
+/*=================
+    Lista producto (resultado de consultar un id)
+=================*/
+.lista-container, .errores-container {
+    width: 50%;
+    margin: 0 auto;
 }
 
 .lista-producto_img {
@@ -185,9 +231,56 @@ header nav {
     border-radius: 0.25rem;
 }
 
+/* El producto consultado tambien es una tarjeta blanca */
 .lista-producto {
     display: flex;
     align-items: center;
-    padding-bottom: 0;
     justify-content: space-between;
+    background-color: white;
+    border: 1px solid var(--gris-borde);
+    border-radius: 14px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 31, 92, 0.12);
+}
+
+.lista-producto p {
+    margin-bottom: 0;
+}
+
+.lista-producto {
+    color:black;
+}
+
+/* Botones dentro de la tarjeta (Actualizar / Eliminar) */
+.lista-producto button {
+    background-color: var(--boca-azul);
+    border-color: var(--boca-azul);
+    color: white;
+}
+
+.lista-producto button:hover {
+    background-color: var(--boca-amarillo);
+    border-color: var(--boca-amarillo);
+    color: var(--boca-azul-oscuro);
+}
+
+/* El boton de eliminar va en naranja para que se note que es mas delicado */
+#deleteProduct-button {
+    background-color: var(--naranja-quemado);
+    border-color: var(--naranja-quemado);
+}
+
+
+/*=================
+    Footer
+=================*/
+footer {
+    background-color: var(--boca-azul-oscuro);
+    border-top: 4px solid var(--boca-amarillo);
+    border-radius: 12px;
+    padding: 15px 25px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: white;
+    text-align: center;
 }

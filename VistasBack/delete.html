@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Borrar Producto</title>
@@ -11,50 +13,87 @@
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css" type="text/css">
 
     <link rel="stylesheet" href="css/styles.css">
+
 </head>
 
 <body>
+
     <header>
+
         <section id="logo">
+
             <div class="logo-container">
-                <img src="img/fertin-logo.png" class="logo" alt="Los pollos hermanos">
+
+                <img src="img/fertin-logo.png" class="logo" alt="Ferreteria Fertin">
+
             </div>
 
             <h2 class="logo-titulo">Ferreteria Fertin</h2>
+
         </section>
 
         <nav>
+
             <ul class="lista-nav">
+
                 <li>
+
                     <a href="index.html">
+
                         Principal
+
                     </a>
+
                 </li>
+
                 <li>
+
                     <a href="get.html">
+
                         Obtener
+
                     </a>
+
                 </li>
+
                 <li>
+
                     <a href="post.html">
+
                         Crear
+
                     </a>
+
                 </li>
+
                 <li>
+
                     <a href="put.html">
+
                         Modificar
+
                     </a>
+
                 </li>
+
                 <li>
+
                     <a href="delete.html">
+
                         Eliminar
+
                     </a>
+
                 </li>
+
             </ul>
+
         </nav>
+
     </header>
 
     <main>
+
         <section class="getIdProduct-container">
 
             <!-- Formulario GET product by id -->
@@ -62,16 +101,20 @@
 
                 <label for="idProd">Id del producto</label>
                 <input type="number" name="idProd" id="idProd" required>
-
                 <input type="submit" value="Consultar producto">
+                
             </form>
 
         </section>
 
         <section id="contenedor-productos"></section>
+
     </main>
 
+    <footer>Fernando Cantero - Agustin Ariel Navarro</footer>
+
     <script>
+
         const contenedorProductos = document.getElementById("contenedor-productos");
         const getIdProductForm = document.getElementById("getIdProductForm");
         const urlBase = "http://localhost:3000";
@@ -118,7 +161,7 @@
                 <ul class="lista-container">
                     <li class="lista-producto">
                         <img src="${producto.imagen}" alt="${producto.nombre}" class="lista-producto_img">
-                        <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: $${producto.precio}</strong></p>
+                        <p>Id: ${producto.id} / Nombre: ${producto.nombre} / Precio: $${producto.precio}</p>
                         <p><button id="deleteProduct-button">Eliminar producto</button></p>
                     </li>
                 </ul>
@@ -181,6 +224,7 @@
         }
 
     </script>
+    
 </body>
 
 </html> 
