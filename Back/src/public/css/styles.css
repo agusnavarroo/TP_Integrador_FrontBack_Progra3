@@ -2,14 +2,13 @@
     Generales
 =================*/
 :root {
-    /* Colores Boca */
-    --boca-azul: #0033a0;
-    --boca-azul-oscuro: #001f5c;
-    --boca-amarillo: #fedd00;
+    /* Colores*/
+    --azul: #0033a0;
+    --azul-oscuro: #001f5c;
+    --amarillo: #fedd00;
 
     --naranja-acento: #ff6b35;
     --naranja-dorado: #f77f00;
-    --naranja-quemado: #d05a3f;
 
     /* Grises */
     --fondo-gris: #eceff3;
@@ -63,9 +62,9 @@ header, #logo, .lista-nav {
 
 header {
     justify-content: space-between;
-    background-color: var(--boca-azul-oscuro);
+    background-color: var(--azul-oscuro);
     border-radius: 12px;
-    border-bottom: 4px solid var(--boca-amarillo);
+    border-bottom: 4px solid var(--amarillo);
     padding: 10px 25px;
     margin-top: 15px;
     margin-bottom: 30px;
@@ -89,7 +88,7 @@ ul {
 .logo-titulo {
     margin-bottom: 0;
     font-size: 1.2rem;
-    color: var(--boca-amarillo);
+    color: var(--amarillo);
 }
 
 header nav {
@@ -110,8 +109,8 @@ header nav {
 
 /* NUEVO (no visto en clase): cuando el mouse esta encima del link */
 .lista-nav a:hover {
-    background-color: var(--boca-amarillo);
-    color: var(--boca-azul-oscuro);
+    background-color: var(--amarillo);
+    color: var(--azul-oscuro);
 }
 
 
@@ -148,7 +147,7 @@ header nav {
 }
 
 .card-producto h4 {
-    color: var(--boca-azul);
+    color: var(--azul);
     font-size: 14px;
     text-align: center;
 }
@@ -187,7 +186,7 @@ header nav {
 /* Titulos centrados */
 .createProduct-container h2, .updateProduct-container h2 {
     text-align: center;
-    color: var(--boca-azul-oscuro);
+    color: var(--azul-oscuro);
 }
 
 /* Cada formulario es una tarjeta blanca, igual que las cards */
@@ -200,21 +199,21 @@ main form {
 }
 
 main label {
-    color: var(--boca-azul-oscuro);
+    color: var(--azul-oscuro);
 }
 
-/* Botones de enviar: azul Boca */
+/* Botones de enviar: azul */
 /* NUEVO (no visto en clase): selector que elige el input segun su atributo type */
 main form input[type="submit"] {
-    background-color: var(--boca-azul);
-    border-color: var(--boca-azul);
+    background-color: var(--azul);
+    border-color: var(--azul);
     color: white;
 }
 
 main form input[type="submit"]:hover {
-    background-color: var(--boca-amarillo);
-    border-color: var(--boca-amarillo);
-    color: var(--boca-azul-oscuro);
+    background-color: var(--amarillo);
+    border-color: var(--amarillo);
+    color: var(--azul-oscuro);
 }
 
 
@@ -245,29 +244,30 @@ main form input[type="submit"]:hover {
 
 .lista-producto p {
     margin-bottom: 0;
+    color: black;
 }
 
 .lista-producto {
-    color:black;
+    color: black;
 }
 
 /* Botones dentro de la tarjeta (Actualizar / Eliminar) */
 .lista-producto button {
-    background-color: var(--boca-azul);
-    border-color: var(--boca-azul);
+    background-color: var(--azul);
+    border-color: var(--azul);
     color: white;
 }
 
-.lista-producto button:hover {
-    background-color: var(--boca-amarillo);
-    border-color: var(--boca-amarillo);
-    color: var(--boca-azul-oscuro);
+.lista-producto button {
+    background-color: var(--amarillo);
+    border-color: var(--amarillo);
+    color: var(--azul-oscuro);
 }
 
 /* El boton de eliminar va en naranja para que se note que es mas delicado */
 #deleteProduct-button {
-    background-color: var(--naranja-quemado);
-    border-color: var(--naranja-quemado);
+    background-color: var(--rojo);
+    border-color: var(--rojo);
 }
 
 
@@ -275,8 +275,8 @@ main form input[type="submit"]:hover {
     Footer
 =================*/
 footer {
-    background-color: var(--boca-azul-oscuro);
-    border-top: 4px solid var(--boca-amarillo);
+    background-color: var(--azul-oscuro);
+    border-top: 4px solid var(--amarillo);
     border-radius: 12px;
     padding: 15px 25px;
     margin-top: 40px;
@@ -292,5 +292,18 @@ footer {
 
 .login-container h3 {
     text-align: center;
-    color: var(--boca-azul-oscuro);
+    color: var(--azul-oscuro);
+}
+
+#logout-form {
+    margin: 0;
+}
+
+#logout-form input[type="submit"] {
+    width: auto;
+    margin: 0;
+    padding: 8px 16px;
+    background-color: var(--amarillo);
+    border-color: var(--amarillo);
+    color: white;
 }
