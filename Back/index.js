@@ -1,47 +1,36 @@
 /*=====================
 	Importaciones
 =====================*/
-import express from "express"; // Importamos express
-import cors from "cors"; // Importamos cors para permitir las solicitudes del front
-import environments from "./src/config/environments.js"; // Variables de entorno (puerto, datos de la BBDD)
-import { productRoutes } from "./src/routes/index.js"; // Rutas de producto desde el archivo barril (export con nombre, por eso las llaves)
-import { loggerUrl } from "./src/middlewares/middlewares.js"; // Middleware logger (reemplaza al que estaba escrito aca adentro)
+import express from "express";
+import cors from "cors";
+import session from "express-session";
+import environments from "./src/config/environments.js";
+import { loggerUrl } from "./src/middlewares/middlewares.js";
+import { productRoutes, viewRoutes, authRoutes } from "./src/routes/index.js";
+import { __dirname, join } from "./src/utils/index.js";
 
-const app = express(); // Creamos una instancia de aplicacion de express en app
-const PORT = environments.port;
+const { port, sessionKey } = environments;
+const app = express();
 
-/*=====================
-	Middlewares -> Funciones que se ejecutan entre la req y la res
-=====================*/
-// Importante: van ANTES de las rutas, porque se ejecutan en el orden en que los escribimos
-app.use(cors()); // Permite todas las solicitudes (evita el error de CORS en el front)
-app.use(loggerUrl); // Muestra por consola cada solicitud (sin parentesis: le pasamos la funcion, no la ejecutamos)
-app.use(express.json()); // Parsea el JSON recibido en el body y lo deja en req.body
+app.set("view engine", "ejs");
+app.set("views", join(__dirname, "src/views"));
 
+app.use(cors());
+app.use(loggerUrl);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(join(__dirname, "src/public")));
 
+app.use(session({
+    secret: sessionKey,
+    resave: false,
+    saveUninitialized: false
+}));
 
-/*=====================
-	Rutas
-=====================*/
-app.get("/", (req, res) => {
-	res.send("Hola mundo desde un servidor de Express.js");
-});
-
-// Montamos las rutas de producto con el prefijo /api/products
-// Ej: router.get("/") -> GET /api/products
-//     router.get("/:id") -> GET /api/products/:id
 app.use("/api/products", productRoutes);
+app.use("/dashboard", viewRoutes);
+app.use("/", authRoutes);
 
-
-
-/* Vistas EJS -> mas adelante
-*/
-
-
-
-/*=====================
-	Servidor
-=====================*/
-app.listen(PORT, () => {
-	console.log(`Servidor corriendo en el puerto http://localhost:${PORT}`);
+app.listen(port, () => {
+    console.log(`Servidor corriendo en http://localhost:${port}`);
 });

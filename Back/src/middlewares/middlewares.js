@@ -69,10 +69,19 @@ const validateProduct = (req, res, next) => {
 	next(); // Damos paso al siguiente middleware o a la response
 }
 
+const requireLogin = (req, res, next) => {
+    if (!req.session.user) {
+        return res.redirect("/login");
+    }
+
+	next(); // Damos paso al siguiente middleware o a procesar la respuesta
+}
+
 
 // Exportamos nuestros middlewares para poder usarlos en otros modulos
 export {
     loggerUrl,
     validateId,
-    validateProduct
+    validateProduct,
+	requireLogin
 }
