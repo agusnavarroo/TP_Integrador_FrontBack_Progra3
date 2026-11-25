@@ -284,3 +284,13 @@ footer {
     color: white;
     text-align: center;
 }
+
+.login-container {
+    width: 40%;
+    margin: 60px auto;
+}
+
+.login-container h3 {
+    text-align: center;
+    color: var(--boca-azul-oscuro);
+}

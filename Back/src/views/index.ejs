@@ -1,0 +1,17 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/header.ejs") %>
+
+    <main>
+        <section id="contenedor-productos">
+            <% listaProductos.forEach(producto => { %>
+                <div class="card-producto">
+                    <img class="card-img" src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
+                    <h4><%= producto.nombre %></h4>
+                    <p class="card-id">Id: <%= producto.id %></p>
+                    <p class="card-precio">$ <%= producto.precio %></p>
+                </div>
+            <% }) %>
+        </section>
+    </main>
+
+<%- include("partials/footer.ejs") %>
