@@ -6,7 +6,7 @@ import cors from "cors";
 import session from "express-session";
 import environments from "./src/config/environments.js";
 import { loggerUrl } from "./src/middlewares/middlewares.js";
-import { productRoutes, viewRoutes, authRoutes } from "./src/routes/index.js";
+import { productRoutes, viewRoutes, authRoutes, userRoutes } from "./src/routes/index.js";
 import { __dirname, join } from "./src/utils/index.js";
 
 const { port, sessionKey } = environments;
@@ -28,6 +28,7 @@ app.use(session({
 }));
 
 app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 app.use("/dashboard", viewRoutes);
 app.use("/", authRoutes);
 

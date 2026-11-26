@@ -6,6 +6,7 @@
     --azul: #0033a0;
     --azul-oscuro: #001f5c;
     --amarillo: #fedd00;
+    --rojo: #d1411f;
 
     --naranja-acento: #ff6b35;
     --naranja-dorado: #f77f00;
@@ -122,7 +123,7 @@ header nav {
     border: 1px solid var(--gris-borde);
     border-radius: 14px;
     width: 180px;
-    height: 230px;
+    height: 340px;
     padding: 10px 12px;
     display: flex;
     flex-direction: column;
@@ -174,17 +175,89 @@ header nav {
 
 
 /*=================
+    Principal separada por tipo
+=================*/
+.titulo-categoria {
+    color: var(--azul-oscuro);
+    border-bottom: 3px solid var(--amarillo);
+    padding-bottom: 8px;
+    margin-top: 30px;
+}
+
+.contenedor-categoria {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-estado {
+    font-size: 12px;
+}
+
+.estado-activo {
+    color: var(--mensaje-verde);
+}
+
+.estado-inactivo {
+    color: var(--rojo);
+}
+
+/* Link "Modificar" dentro de cada card, con forma de boton */
+.btn-modificar {
+    display: block;
+    width: 100%;
+    padding: 6px;
+    font-size: 13px;
+    text-align: center;
+    border-radius: 6px;
+    background-color: var(--amarillo);
+    color: var(--azul-oscuro);
+    /* NUEVO (no visto en clase): saca el subrayado del link */
+    text-decoration: none;
+}
+
+.btn-modificar:hover {
+    background-color: var(--azul);
+    color: white;
+}
+
+/* Botones de activar / desactivar dentro de cada card */
+.btn-estado {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 6px;
+    font-size: 13px;
+}
+
+.btn-desactivar {
+    background-color: var(--rojo);
+    border-color: var(--rojo);
+    color: white;
+}
+
+.btn-reactivar {
+    background-color: var(--azul);
+    border-color: var(--azul);
+    color: white;
+}
+
+
+/*=================
     Formularios (Obtener, Crear, Modificar, Eliminar)
 =================*/
 
-/* Los 3 contenedores tienen ancho fijo y quedan en el medio de la pagina */
-.getIdProduct-container, .createProduct-container, .updateProduct-container {
+/* Los contenedores tienen ancho fijo y quedan en el medio de la pagina */
+.getIdProduct-container, .createProduct-container, .updateProduct-container, .createUser-container {
     width: 50%;
     margin: 0 auto;
 }
 
+/* El formulario de admin queda separado del de productos */
+.createUser-container {
+    margin-top: 40px;
+}
+
 /* Titulos centrados */
-.createProduct-container h2, .updateProduct-container h2 {
+.createProduct-container h2, .updateProduct-container h2, .createUser-container h2 {
     text-align: center;
     color: var(--azul-oscuro);
 }
@@ -240,6 +313,7 @@ main form input[type="submit"]:hover {
     border-radius: 14px;
     padding: 15px;
     box-shadow: 0 4px 12px rgba(0, 31, 92, 0.12);
+    color: black;
 }
 
 .lista-producto p {
@@ -247,27 +321,18 @@ main form input[type="submit"]:hover {
     color: black;
 }
 
-.lista-producto {
-    color: black;
-}
-
 /* Botones dentro de la tarjeta (Actualizar / Eliminar) */
-.lista-producto button {
-    background-color: var(--azul);
-    border-color: var(--azul);
-    color: white;
-}
-
 .lista-producto button {
     background-color: var(--amarillo);
     border-color: var(--amarillo);
     color: var(--azul-oscuro);
 }
 
-/* El boton de eliminar va en naranja para que se note que es mas delicado */
+/* El boton de eliminar va en rojo para que se note que es mas delicado */
 #deleteProduct-button {
     background-color: var(--rojo);
     border-color: var(--rojo);
+    color: white;
 }
 
 
@@ -285,6 +350,10 @@ footer {
     text-align: center;
 }
 
+
+/*=================
+    Login y logout
+=================*/
 .login-container {
     width: 40%;
     margin: 60px auto;
@@ -292,6 +361,21 @@ footer {
 
 .login-container h3 {
     text-align: center;
+    color: var(--azul-oscuro);
+}
+
+/* Boton de acceso directo (demo): mismo estilo que el boton Login */
+main form .btn-demo {
+    width: 100%;
+    margin-bottom: 0;
+    background-color: var(--azul);
+    border-color: var(--azul);
+    color: white;
+}
+
+main form .btn-demo:hover {
+    background-color: var(--amarillo);
+    border-color: var(--amarillo);
     color: var(--azul-oscuro);
 }
 
@@ -305,5 +389,5 @@ footer {
     padding: 8px 16px;
     background-color: var(--amarillo);
     border-color: var(--amarillo);
-    color: white;
+    color: var(--azul-oscuro);
 }

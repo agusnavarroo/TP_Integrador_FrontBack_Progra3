@@ -151,3 +151,31 @@ async function actualizarProducto(event) {
         mostrarMensaje("error", "Error al actualizar el producto");
     }
 }
+
+
+/*=====================
+    Si venimos desde la principal (con ?id=5), cargamos directo el formulario
+=====================*/
+const idInicial = document.getElementById("idInicial").value;
+
+async function cargarProductoInicial(id) {
+    try {
+        const response = await fetch(`/api/products/${id}`);
+        const data = await response.json();
+
+        if (!response.ok) {
+            return mostrarMensaje("error", data.message);
+        }
+
+        mostrarFormProducto(data.payload[0]);
+
+    } catch (error) {
+        console.error("Error al obtener producto: ", error.message);
+        mostrarMensaje("error", "Error de conexion con el servidor");
+    }
+}
+
+// Si el campo oculto trae un id, cargamos ese producto. Si esta vacio, no hacemos nada
+if (idInicial) {
+    cargarProductoInicial(idInicial);
+}

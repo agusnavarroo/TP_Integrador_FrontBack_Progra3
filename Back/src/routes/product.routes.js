@@ -4,7 +4,7 @@
 
 import { Router } from "express"; // Importamos el middleware Router para gestionar las rutas
 import { validateId, validateProduct } from "../middlewares/middlewares.js";
-import { createProduct, getActiveProducts, getAllProducts, getProductById, modifyProduct, removeProduct } from "../controllers/product.controllers.js";
+import { createProduct, getActiveProducts, getAllProducts, getProductById, modifyProduct, removeProduct, changeProductStatus } from "../controllers/product.controllers.js";
 
 const router = Router(); // Funciona igual que una miniaplicacion de express
 
@@ -50,7 +50,9 @@ router.put("/", validateProduct, modifyProduct);
 
 router.delete("/:id", validateId, removeProduct);
 
-
+///////////////////
+// PUT status -> Desactivar o reactivar producto
+router.put("/:id/status", validateId, changeProductStatus);
 
 // Exportamos todas las peticiones que atiende router
 export default router;

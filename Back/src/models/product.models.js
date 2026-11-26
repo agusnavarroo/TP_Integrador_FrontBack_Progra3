@@ -15,8 +15,8 @@ const selectActiveProducts = () => {
 /////////////////////////////
 // Traer todos los productos
 const selectAllProducts = () => {
-    // Optimizacion 2: Solo devolvemos los campos necesarios, no todo
-    const sql = "SELECT id, nombre, precio, imagen FROM productos";
+    // Traemos categoria y activo para separar por tipo y mostrar el estado en el panel
+    const sql = "SELECT id, nombre, precio, imagen, categoria, activo FROM productos";
     return connection.query(sql);
 };
 
@@ -60,7 +60,12 @@ const deleteProduct = (id) => {
     return connection.query(sql, [id]);
 }
 
-
+///////////////////////////
+// Cambiar solo el estado (activo) de un producto
+const updateProductStatus = (activo, id) => {
+    const sql = "UPDATE productos SET activo = ? WHERE id = ?";
+    return connection.query(sql, [activo, id]);
+}
 
 export default {
     selectAllProducts,
@@ -68,5 +73,6 @@ export default {
     insertNewProduct,
     updateProduct,
     deleteProduct,
-    selectActiveProducts
+    selectActiveProducts,
+    updateProductStatus
 }

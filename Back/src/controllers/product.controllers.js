@@ -201,3 +201,39 @@ export const removeProduct = async (req, res) => {
         });
     }
 }
+
+///////////////////
+// PUT status -> Desactivar o reactivar un producto (baja logica)
+export const changeProductStatus = async (req, res) => {
+    try {
+        const id = req.id; // Lo deja el middleware validateId
+        const { activo } = req.body;
+
+        // activo tiene que ser true o false
+        if (typeof activo !== "boolean") {
+            return res.status(400).json({
+                message: "El campo activo debe ser true o false"
+            });
+        }
+
+        const [result] = await ProductModels.updateProductStatus(activo, id);
+
+        // Si no se modifico ninguna fila, el producto no existe
+        if (result.affectedRows === 0) {
+            return res.status(404).json({
+                message: "No existe un producto con ese id"
+            });
+        }
+
+        res.status(200).json({
+            message: activo ? "Producto reactivado con exito" : "Producto desactivado con exito"
+        });
+
+    } catch (error) {
+        console.log("Error cambiando el estado del producto: ", error);
+
+        res.status(500).json({
+            message: "Error interno del servidor al cambiar el estado del producto"
+        });
+    }
+}
