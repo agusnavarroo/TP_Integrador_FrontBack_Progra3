@@ -4,7 +4,6 @@ export const vistaProductos = async (req, res) => {
     try {
         const [rows] = await ProductModels.selectAllProducts();
 
-        // Armamos un grupo por cada tipo de producto, filtrando el array por categoria
         const grupos = [
             { titulo: "Herramientas", productos: rows.filter(producto => producto.categoria === "Herramientas") },
             { titulo: "Fijaciones", productos: rows.filter(producto => producto.categoria === "Fijaciones") }
@@ -24,11 +23,9 @@ export const vistaConsultar = (req, res) => res.render("get", { title: "Obtener 
 export const vistaCrear = (req, res) => res.render("post", { title: "Crear producto" });
 export const vistaEliminar = (req, res) => res.render("delete", { title: "Eliminar producto" });
 
-///////////////////
-// Vista modificar
+
 export const vistaModificar = (req, res) => {
-    // Si venimos desde una card de la principal, el id llega en la direccion (?id=5)
-    // Si entramos desde el menu, no hay id y queda vacio
+
     const idProducto = req.query.id || "";
 
     res.render("put", {

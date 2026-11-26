@@ -2,18 +2,24 @@
 <%- include("partials/header.ejs") %>
 
     <main>
+
         <section class="getIdProduct-container">
+
             <form id="getIdProductForm">
+
                 <label for="idProd">Id del producto</label>
                 <input type="number" name="idProd" id="idProd" min="1" required>
                 <input type="submit" value="Consultar producto">
+
             </form>
+
         </section>
 
         <!-- Id que llega desde la principal (queda vacio si entramos desde el menu) -->
         <input type="hidden" id="idInicial" value="<%= idProducto %>">
 
         <section id="contenedor-productos"></section>
+        
     </main>
 
     <script src="/js/put.js"></script>

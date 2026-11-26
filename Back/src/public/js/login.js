@@ -5,6 +5,5 @@ const loginForm = document.getElementById("login-form");
         document.getElementById("emailUser").value = "admin@fertin.com";
         document.getElementById("passwordUser").value = "admin123";
 
-        // Enviamos el formulario como si hubieramos apretado "Login"
         loginForm.submit();
     });

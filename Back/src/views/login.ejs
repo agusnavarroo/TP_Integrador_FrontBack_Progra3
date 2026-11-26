@@ -1,9 +1,11 @@
 <%- include("partials/head.ejs") %>
 
 <main class="login-container">
+
     <h3 style="text-align: center"><%= about %></h3>
 
     <form id="login-form" action="/login" method="POST">
+
         <label for="emailUser">Email</label>
         <input type="email" name="email" id="emailUser" required>
 
@@ -13,7 +15,9 @@
         <input type="submit" value="Login">
 
         <!-- Acceso directo para la demo: completa las credenciales y envia el formulario -->
+
         <button type="button" id="btn-demo" class="btn-demo">Acceso directo admin</button>
+        
     </form>
 
     <% if (typeof error !== "undefined") { %>

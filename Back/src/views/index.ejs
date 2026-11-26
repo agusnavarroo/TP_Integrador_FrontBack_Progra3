@@ -2,13 +2,17 @@
 <%- include("partials/header.ejs") %>
 
     <main>
+
         <% grupos.forEach(grupo => { %>
 
             <h2 class="titulo-categoria"><%= grupo.titulo %></h2>
 
             <section class="contenedor-categoria">
+
                 <% grupo.productos.forEach(producto => { %>
+
                     <div class="card-producto">
+
                         <img class="card-img" src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
                         <h4><%= producto.nombre %></h4>
                         <p class="card-id">Id: <%= producto.id %></p>
@@ -18,18 +22,24 @@
                         </p>
 
                         <!-- El id viaja en la direccion: /dashboard/modificar?id=5 -->
+
                         <a class="btn-modificar" href="/dashboard/modificar?id=<%= producto.id %>">Modificar</a>
 
                         <button class="btn-estado <%= producto.activo ? 'btn-desactivar' : 'btn-reactivar' %>"
                                 data-id="<%= producto.id %>"
                                 data-activo="<%= producto.activo %>">
                             <%= producto.activo ? "Desactivar" : "Reactivar" %>
+
                         </button>
+
                     </div>
+
                 <% }) %>
+
             </section>
 
         <% }) %>
+        
     </main>
 
     <script src="/js/index.js"></script>

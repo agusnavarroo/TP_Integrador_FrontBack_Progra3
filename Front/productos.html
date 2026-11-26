@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang = "es">
+
+<head>
+
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Ferretería Fertin - Productos</title>
+    <link rel = "icon" href = "./img/fertin-favicon.png">
+    <link rel = "stylesheet" href = "https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css" type = "text/css">
+    <link rel = "stylesheet" href = "./css/styles.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <section id = "logo">
+
+            <div class = "logo-container">
+
+                <img src = "./img/fertin-logo.png" class = "logo" alt = "Ferretería Fertin">
+
+            </div>
+
+            <h2 class = "logo-titulo">Ferretería Fertin</h2>
+
+        </section>
+
+        <nav>
+
+            <ul class = "lista-nav">
+
+                <li><a href = "./index.html">Inicio</a></li>
+                <li><a href = "./productos.html">Productos</a></li>
+                <li><a href = "./carrito.html">Carrito</a></li>
+                <li><a href = "http://localhost:3000/login">Admin</a></li>
+                <li><button id = "btn-tema" class = "btn-tema">Modo oscuro</button></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class = "saludo-container">
+
+            <h1>Hola, <span id = "nombre-cliente"></span></h1>
+
+            <p>Elegí tus productos y agregalos al carrito</p>
+
+            <nav class = "categorias-nav">
+
+                <a href = "#herramientas">Herramientas</a>
+                <a href = "#fijaciones">Fijaciones</a>
+
+            </nav>
+
+        </section>
+
+        <section id = "herramientas">
+
+            <h2 class = "titulo-categoria">Herramientas</h2>
+
+            <div id = "contenedor-herramientas" class = "contenedor-categoria"></div>
+
+        </section>
+
+        <section id = "fijaciones">
+
+            <h2 class = "titulo-categoria">Fijaciones</h2>
+
+            <div id = "contenedor-fijaciones" class = "contenedor-categoria"></div>
+
+        </section>
+
+        <section class = "ir-carrito-container">
+
+            <a href = "./carrito.html" class = "btn-ir-carrito">Ir al carrito (<span id = "cantidad-carrito">0</span>)</a>
+
+        </section>
+
+        <p id = "mensaje-productos"></p>
+
+    </main>
+
+    <script src = "./js/productos.js"></script>
+    <script src = "./js/tema.js"></script>
+
+    <footer>Fernando Cantero - Agustin Ariel Navarro</footer>
+
+</body>
+</html>

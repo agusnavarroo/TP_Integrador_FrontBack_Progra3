@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang = "es">
+
+<head>
+
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Ferretería Fertin - Ticket</title>
+    <link rel = "icon" href = "./img/fertin-favicon.png">
+    <link rel = "stylesheet" href = "https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css" type = "text/css">
+    <link rel = "stylesheet" href = "./css/styles.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <section id = "logo">
+
+            <div class = "logo-container">
+
+                <img src = "./img/fertin-logo.png" class = "logo" alt = "Ferretería Fertin">
+
+            </div>
+
+            <h2 class = "logo-titulo">Ferretería Fertin</h2>
+
+        </section>
+
+        <nav>
+
+            <ul class = "lista-nav">
+
+                <li><a href = "./index.html">Inicio</a></li>
+                <li><a href = "http://localhost:3000/login">Admin</a></li>
+                <li><button id = "btn-tema" class = "btn-tema">Modo oscuro</button></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class = "ticket-container">
+
+            <h1>Ticket de compra</h1>
+
+            <div id = "contenedor-ticket"></div>
+
+            <p id = "mensaje-ticket"></p>
+
+            <div class = "ticket-botones">
+
+                <button id = "btn-pdf">Descargar PDF</button>
+                <button id = "btn-salir" class = "secondary">Salir</button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src = "./js/tema.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src = "./js/ticket.js"></script>
+
+    <footer>Fernando Cantero - Agustin Ariel Navarro</footer>
+
+</body>
+</html>

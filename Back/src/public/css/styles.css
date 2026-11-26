@@ -1,8 +1,9 @@
 /*=================
     Generales
 =================*/
+
 :root {
-    /* Colores*/
+
     --azul: #0033a0;
     --azul-oscuro: #001f5c;
     --amarillo: #fedd00;
@@ -11,12 +12,10 @@
     --naranja-acento: #ff6b35;
     --naranja-dorado: #f77f00;
 
-    /* Grises */
     --fondo-gris: #eceff3;
     --gris-texto: #7a8499;
     --gris-borde: #dde2ea;
 
-    /* Mensajes */
     --mensaje-verde: #0a3622;
     --fondo-verde: #d1e7dd;
     --borde-verde: #a3cfbb;
@@ -25,15 +24,16 @@
     --fondo-rojo: #f8d7da;
     --borde-rojo: #f1aeb5;
 
-    /* Pico pinta el fondo aca, por eso lo ponemos tambien en :root */
     background-color: var(--fondo-gris);
 }
 
 body {
+
     background-color: var(--fondo-gris);
 }
 
 .mensaje {
+
     margin: 0 auto;
     padding: 20px 60px;
     border-radius: 6px;
@@ -41,27 +41,31 @@ body {
 }
 
 .error {
+
     color: var(--mensaje-rojo);
     background-color: var(--fondo-rojo);
     border: 2px solid var(--borde-rojo);
 }
 
 .exito {
+
     color: var(--mensaje-verde);
     background-color: var(--fondo-verde);
     border: 2px solid var(--borde-verde);
 }
 
-
 /*=================
     Header
 =================*/
+
 header, #logo, .lista-nav {
+
     display: flex;
     align-items: center;
 }
 
 header {
+
     justify-content: space-between;
     background-color: var(--azul-oscuro);
     border-radius: 12px;
@@ -72,53 +76,56 @@ header {
 }
 
 ul {
+
     padding-left: 0;
     list-style: none;
 }
 
 #logo {
+
     width: 25%;
     justify-content: space-around;
     margin-bottom: 0;
 }
 
 .logo-container {
+
     width: 55px;
 }
 
 .logo-titulo {
+
     margin-bottom: 0;
     font-size: 1.2rem;
     color: var(--amarillo);
 }
 
 header nav {
+
     width: 55%;
 }
 
 .lista-nav {
+
     justify-content: space-around;
     width: 100%;
 }
 
-/* Links del menu como "pildoras" */
 .lista-nav a {
+
     color: white;
     padding: 8px 16px;
     border-radius: 20px;
 }
 
-/* NUEVO (no visto en clase): cuando el mouse esta encima del link */
 .lista-nav a:hover {
+
     background-color: var(--amarillo);
     color: var(--azul-oscuro);
 }
 
-
-/*=================
-    Cards (pagina principal)
-=================*/
 .card-producto {
+
     background-color: white;
     border: 1px solid var(--gris-borde);
     border-radius: 14px;
@@ -130,45 +137,47 @@ header nav {
     align-items: center;
     justify-content: space-evenly;
     margin: 10px;
-
-    /* NUEVO (no visto en clase): sombra suave para que la tarjeta "flote" */
     box-shadow: 0 4px 12px rgba(0, 31, 92, 0.12);
-
-    /* NUEVO (no visto en clase): hace suave el movimiento de abajo */
     transition: transform 0.2s;
 }
 
-/* NUEVO (no visto en clase): al pasar el mouse, la tarjeta sube un poquito */
 .card-producto:hover {
+
     transform: translateY(-4px);
 }
 
 .card-producto h4, .card-producto p {
+
     margin-bottom: 0;
 }
 
 .card-producto h4 {
+
     color: var(--azul);
     font-size: 14px;
     text-align: center;
 }
 
 .card-img {
+
     width: 80px;
     max-height: 90px;
 }
 
 .card-id {
+
     color: var(--gris-texto);
     font-size: 12px;
 }
 
 .card-precio {
+
     color: black;
     font-size: 20px;
 }
 
 #contenedor-productos {
+
     display: flex;
     flex-wrap: wrap;
 }
@@ -177,7 +186,9 @@ header nav {
 /*=================
     Principal separada por tipo
 =================*/
+
 .titulo-categoria {
+
     color: var(--azul-oscuro);
     border-bottom: 3px solid var(--amarillo);
     padding-bottom: 8px;
@@ -185,24 +196,28 @@ header nav {
 }
 
 .contenedor-categoria {
+
     display: flex;
     flex-wrap: wrap;
 }
 
 .card-estado {
+
     font-size: 12px;
 }
 
 .estado-activo {
+
     color: var(--mensaje-verde);
 }
 
 .estado-inactivo {
+
     color: var(--rojo);
 }
 
-/* Link "Modificar" dentro de cada card, con forma de boton */
 .btn-modificar {
+
     display: block;
     width: 100%;
     padding: 6px;
@@ -211,17 +226,17 @@ header nav {
     border-radius: 6px;
     background-color: var(--amarillo);
     color: var(--azul-oscuro);
-    /* NUEVO (no visto en clase): saca el subrayado del link */
     text-decoration: none;
 }
 
 .btn-modificar:hover {
+
     background-color: var(--azul);
     color: white;
 }
 
-/* Botones de activar / desactivar dentro de cada card */
 .btn-estado {
+
     width: 100%;
     margin-bottom: 0;
     padding: 6px;
@@ -229,12 +244,14 @@ header nav {
 }
 
 .btn-desactivar {
+
     background-color: var(--rojo);
     border-color: var(--rojo);
     color: white;
 }
 
 .btn-reactivar {
+
     background-color: var(--azul);
     border-color: var(--azul);
     color: white;
@@ -245,25 +262,25 @@ header nav {
     Formularios (Obtener, Crear, Modificar, Eliminar)
 =================*/
 
-/* Los contenedores tienen ancho fijo y quedan en el medio de la pagina */
 .getIdProduct-container, .createProduct-container, .updateProduct-container, .createUser-container {
+
     width: 50%;
     margin: 0 auto;
 }
 
-/* El formulario de admin queda separado del de productos */
 .createUser-container {
+
     margin-top: 40px;
 }
 
-/* Titulos centrados */
 .createProduct-container h2, .updateProduct-container h2, .createUser-container h2 {
+
     text-align: center;
     color: var(--azul-oscuro);
 }
 
-/* Cada formulario es una tarjeta blanca, igual que las cards */
 main form {
+
     background-color: white;
     border: 1px solid var(--gris-borde);
     border-radius: 14px;
@@ -272,18 +289,19 @@ main form {
 }
 
 main label {
+
     color: var(--azul-oscuro);
 }
 
-/* Botones de enviar: azul */
-/* NUEVO (no visto en clase): selector que elige el input segun su atributo type */
 main form input[type="submit"] {
+
     background-color: var(--azul);
     border-color: var(--azul);
     color: white;
 }
 
 main form input[type="submit"]:hover {
+
     background-color: var(--amarillo);
     border-color: var(--amarillo);
     color: var(--azul-oscuro);
@@ -293,18 +311,21 @@ main form input[type="submit"]:hover {
 /*=================
     Lista producto (resultado de consultar un id)
 =================*/
+
 .lista-container, .errores-container {
+
     width: 50%;
     margin: 0 auto;
 }
 
 .lista-producto_img {
+
     width: 100px;
     border-radius: 0.25rem;
 }
 
-/* El producto consultado tambien es una tarjeta blanca */
 .lista-producto {
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -317,19 +338,20 @@ main form input[type="submit"]:hover {
 }
 
 .lista-producto p {
+
     margin-bottom: 0;
     color: black;
 }
 
-/* Botones dentro de la tarjeta (Actualizar / Eliminar) */
 .lista-producto button {
+
     background-color: var(--amarillo);
     border-color: var(--amarillo);
     color: var(--azul-oscuro);
 }
 
-/* El boton de eliminar va en rojo para que se note que es mas delicado */
 #deleteProduct-button {
+
     background-color: var(--rojo);
     border-color: var(--rojo);
     color: white;
@@ -339,7 +361,9 @@ main form input[type="submit"]:hover {
 /*=================
     Footer
 =================*/
+
 footer {
+
     background-color: var(--azul-oscuro);
     border-top: 4px solid var(--amarillo);
     border-radius: 12px;
@@ -354,18 +378,21 @@ footer {
 /*=================
     Login y logout
 =================*/
+
 .login-container {
+
     width: 40%;
     margin: 60px auto;
 }
 
 .login-container h3 {
+
     text-align: center;
     color: var(--azul-oscuro);
 }
 
-/* Boton de acceso directo (demo): mismo estilo que el boton Login */
 main form .btn-demo {
+
     width: 100%;
     margin-bottom: 0;
     background-color: var(--azul);
@@ -374,16 +401,19 @@ main form .btn-demo {
 }
 
 main form .btn-demo:hover {
+
     background-color: var(--amarillo);
     border-color: var(--amarillo);
     color: var(--azul-oscuro);
 }
 
 #logout-form {
+
     margin: 0;
 }
 
 #logout-form input[type="submit"] {
+
     width: auto;
     margin: 0;
     padding: 8px 16px;

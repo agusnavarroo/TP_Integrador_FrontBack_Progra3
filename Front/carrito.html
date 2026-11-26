@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang = "es">
+
+<head>
+
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Ferretería Fertin - Carrito</title>
+    <link rel = "icon" href = "./img/fertin-favicon.png">
+    <link rel = "stylesheet" href = "https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css" type = "text/css">
+    <link rel = "stylesheet" href = "./css/styles.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <section id = "logo">
+
+            <div class = "logo-container">
+
+                <img src = "./img/fertin-logo.png" class = "logo" alt = "Ferretería Fertin">
+
+            </div>
+
+            <h2 class = "logo-titulo">Ferretería Fertin</h2>
+
+        </section>
+
+        <nav>
+
+            <ul class = "lista-nav">
+
+                <li><a href = "./index.html">Inicio</a></li>
+                <li><a href = "./productos.html">Productos</a></li>
+                <li><a href = "./carrito.html">Carrito</a></li>
+                <li><a href = "http://localhost:3000/login">Admin</a></li>
+                <li><button id = "btn-tema" class = "btn-tema">Modo oscuro</button></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class = "carrito-container">
+
+            <h1>Tu carrito</h1>
+
+            <div id = "contenedor-carrito"></div>
+
+            <p class = "carrito-total">Total: $ <span id = "total-carrito">0</span></p>
+
+            <p id = "mensaje-carrito"></p>
+
+            <div class = "carrito-botones">
+
+                <a href = "./productos.html" class = "btn-seguir">Seguir comprando</a>
+                <button id = "btn-confirmar">Confirmar compra</button>
+
+            </div>
+
+        </section>
+
+        <dialog id = "modal-confirmar">
+
+            <article>
+
+                <h3>Confirmar compra</h3>
+
+                <p>¿Querés confirmar la compra?</p>
+
+                <footer>
+
+                    <button id = "btn-cancelar" class = "secondary">Cancelar</button>
+                    <button id = "btn-aceptar">Aceptar</button>
+
+                </footer>
+
+            </article>
+
+        </dialog>
+
+    </main>
+
+    <script src = "./js/carrito.js"></script>
+    <script src = "./js/tema.js"></script>
+
+    <footer>Fernando Cantero - Agustin Ariel Navarro</footer>
+
+</body>
+</html>

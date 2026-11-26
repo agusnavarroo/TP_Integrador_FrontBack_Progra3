@@ -152,10 +152,6 @@ async function actualizarProducto(event) {
     }
 }
 
-
-/*=====================
-    Si venimos desde la principal (con ?id=5), cargamos directo el formulario
-=====================*/
 const idInicial = document.getElementById("idInicial").value;
 
 async function cargarProductoInicial(id) {
@@ -175,7 +171,6 @@ async function cargarProductoInicial(id) {
     }
 }
 
-// Si el campo oculto trae un id, cargamos ese producto. Si esta vacio, no hacemos nada
 if (idInicial) {
     cargarProductoInicial(idInicial);
 }

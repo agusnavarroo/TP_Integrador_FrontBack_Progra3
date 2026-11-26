@@ -4,13 +4,10 @@
 import UserModels from "../models/user.models.js";
 import bcrypt from "bcrypt";
 
-///////////////////
-// Crear usuario admin
 export const createUserAdmin = async (req, res) => {
     try {
         const { nombre, email, password } = req.body;
 
-        // Si falta algun campo, lo mostramos en la vista en un parrafo de error
         if (!nombre || !email || !password) {
             return res.render("post", {
                 title: "Crear producto",
@@ -18,10 +15,8 @@ export const createUserAdmin = async (req, res) => {
             });
         }
 
-        // Rondas de sal: cantidad de veces que se aleatorizan los caracteres al hashear
         const saltRounds = 10;
 
-        // Ciframos (hasheamos) el password recibido
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         await UserModels.createAdminUser(nombre, email, hashedPassword);

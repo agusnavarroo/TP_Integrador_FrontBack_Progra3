@@ -1,24 +1,16 @@
 /*===========================
 	Controladores de venta
 ===========================*/
-import SaleModels from "../models/sale.models.js"; // Importamos los modelos
+import SaleModels from "../models/sale.models.js";
 
-
-
-///////////////////
-// POST sale -> Registrar una venta
 export const createSale = async (req, res) => {
-
-    // Validamos los datos con el middleware validateSale
 
     try {
         const { nombre_usuario, fecha, precio_total, productos } = req.body;
 
-        // 1) Guardamos la venta y nos quedamos con el id que le asigno MySQL
         const [result] = await SaleModels.insertNewSale(nombre_usuario, fecha, precio_total);
         const idVenta = result.insertId;
 
-        // 2) Guardamos cada producto del carrito asociado a esa venta
         for (const producto of productos) {
             await SaleModels.insertSaleProduct(idVenta, producto.id_producto, producto.cantidad);
         }
@@ -37,10 +29,6 @@ export const createSale = async (req, res) => {
     }
 }
 
-
-
-///////////////////
-// GET sales -> Obtener todas las ventas con sus productos
 export const getAllSales = async (req, res) => {
     try {
         const [ventas] = await SaleModels.selectAllSales();
@@ -51,7 +39,6 @@ export const getAllSales = async (req, res) => {
             });
         }
 
-        // A cada venta le agregamos la lista de sus productos
         for (const venta of ventas) {
             const [productos] = await SaleModels.selectProductsBySale(venta.id);
             venta.productos = productos;

@@ -1,19 +1,19 @@
 /*=====================
 	Middlewares
 =====================*/
+
 // Funciones que se ejecutan entre la req y la res
 
-// Middleware logger para mostrar por consola las solicitudes de nuestro servidor
+
 const loggerUrl = (req, res, next) => {
     let fecha = new Date();
     console.log(`[${fecha.toLocaleDateString()} ${fecha.toLocaleTimeString()}] ${req.method} ${req.url}`);
     
-    next(); // Pasamos al siguiente middleware o a la respuesta
+    next();
 }
 
 
 
-// Middleware para filtrar ids no validos
 const validateId = (req, res, next) => {
 	const id = Number(req.params.id); // Pasamos a number el id del parametro
 
@@ -29,35 +29,28 @@ const validateId = (req, res, next) => {
 }
 
 
-
-// Middleware para validar los campos del formulario
 const validateProduct = (req, res, next) => {
 	const categoriasValidas = ["Herramientas", "Fijaciones"];
 
 	const { nombre, imagen, precio, categoria } = req.body;
-	const errores = []; // Creamos un array vacio para ir metiendo los errores
+	const errores = [];
 
-	// Verificamos los datos de entrada
 	if (!nombre || !imagen || !precio || !categoria) {
 		errores.push("Faltan campos requeridos");
 	}
 
-	// Verificamos nombre
 	if (typeof nombre !== "string" || nombre.trim().length < 2) {
 		errores.push("El nombre debe tener al menos 2 caracteres");
 	}
 
-	// Verificamos precio
 	if (typeof precio !== "number" || precio <= 0) {
 		errores.push("El precio debe ser un numero mayor a 0");
 	}
 
-	// Verificamos categoria
 	if (!categoriasValidas.includes(categoria)) {
 		errores.push("Categoria invalida");
 	}
 
-	// Si hay algun error en la lista, lo devolvemos en un 400
 	if (errores.length > 0) {
 		console.log(errores);
 		return res.status(400).json({
@@ -66,7 +59,7 @@ const validateProduct = (req, res, next) => {
 		});
 	}
 
-	next(); // Damos paso al siguiente middleware o a la response
+	next();
 }
 
 const requireLogin = (req, res, next) => {
@@ -74,34 +67,29 @@ const requireLogin = (req, res, next) => {
         return res.redirect("/login");
     }
 
-	next(); // Damos paso al siguiente middleware o a procesar la respuesta
+	next();
 }
 
-// Middleware para validar los datos de una venta
 const validateSale = (req, res, next) => {
 	const { nombre_usuario, fecha, precio_total, productos } = req.body;
-	const errores = []; // Creamos un array vacio para ir metiendo los errores
+	const errores = [];
 
-	// Verificamos nombre del usuario
 	if (typeof nombre_usuario !== "string" || nombre_usuario.trim().length < 2) {
 		errores.push("El nombre del usuario debe tener al menos 2 caracteres");
 	}
 
-	// Verificamos fecha
 	if (typeof fecha !== "string" || fecha.trim().length === 0) {
 		errores.push("La fecha es obligatoria");
 	}
 
-	// Verificamos precio total
 	if (typeof precio_total !== "number" || precio_total <= 0) {
 		errores.push("El precio total debe ser un numero mayor a 0");
 	}
 
-	// Verificamos que haya productos en el carrito
 	if (!Array.isArray(productos) || productos.length === 0) {
 		errores.push("La venta debe tener al menos un producto");
+
 	} else {
-		// Verificamos cada producto del carrito
 		productos.forEach(producto => {
 			if (!Number.isInteger(producto.id_producto) || producto.id_producto <= 0) {
 				errores.push("Hay un producto con id invalido");
@@ -113,7 +101,6 @@ const validateSale = (req, res, next) => {
 		});
 	}
 
-	// Si hay algun error en la lista, lo devolvemos en un 400
 	if (errores.length > 0) {
 		console.log(errores);
 		return res.status(400).json({
@@ -122,11 +109,9 @@ const validateSale = (req, res, next) => {
 		});
 	}
 
-	next(); // Damos paso al siguiente middleware o a la response
+	next();
 }
 
-
-// Exportamos nuestros middlewares para poder usarlos en otros modulos
 export {
     loggerUrl,
     validateId,
