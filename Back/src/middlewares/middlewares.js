@@ -77,11 +77,60 @@ const requireLogin = (req, res, next) => {
 	next(); // Damos paso al siguiente middleware o a procesar la respuesta
 }
 
+// Middleware para validar los datos de una venta
+const validateSale = (req, res, next) => {
+	const { nombre_usuario, fecha, precio_total, productos } = req.body;
+	const errores = []; // Creamos un array vacio para ir metiendo los errores
+
+	// Verificamos nombre del usuario
+	if (typeof nombre_usuario !== "string" || nombre_usuario.trim().length < 2) {
+		errores.push("El nombre del usuario debe tener al menos 2 caracteres");
+	}
+
+	// Verificamos fecha
+	if (typeof fecha !== "string" || fecha.trim().length === 0) {
+		errores.push("La fecha es obligatoria");
+	}
+
+	// Verificamos precio total
+	if (typeof precio_total !== "number" || precio_total <= 0) {
+		errores.push("El precio total debe ser un numero mayor a 0");
+	}
+
+	// Verificamos que haya productos en el carrito
+	if (!Array.isArray(productos) || productos.length === 0) {
+		errores.push("La venta debe tener al menos un producto");
+	} else {
+		// Verificamos cada producto del carrito
+		productos.forEach(producto => {
+			if (!Number.isInteger(producto.id_producto) || producto.id_producto <= 0) {
+				errores.push("Hay un producto con id invalido");
+			}
+
+			if (!Number.isInteger(producto.cantidad) || producto.cantidad <= 0) {
+				errores.push("Hay un producto con cantidad invalida");
+			}
+		});
+	}
+
+	// Si hay algun error en la lista, lo devolvemos en un 400
+	if (errores.length > 0) {
+		console.log(errores);
+		return res.status(400).json({
+			message: "Datos invalidos",
+			listaErrores: errores
+		});
+	}
+
+	next(); // Damos paso al siguiente middleware o a la response
+}
+
 
 // Exportamos nuestros middlewares para poder usarlos en otros modulos
 export {
     loggerUrl,
     validateId,
     validateProduct,
+    validateSale,
 	requireLogin
 }
